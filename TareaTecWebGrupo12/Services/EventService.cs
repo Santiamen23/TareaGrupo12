@@ -1,8 +1,8 @@
-﻿using apiwithdb.Models;
-using apiwithdb.Models.dtos;
-using apiwithdb.Repositories;
+﻿using TareaTecWebGrupo12.Models;
+using TareaTecWebGrupo12.Models.dtos;
+using TareaTecWebGrupo12.Repositories;
 
-namespace apiwithdb.Services
+namespace TareaTecWebGrupo12.Services
 {
     public class EventService : IEventService
     {

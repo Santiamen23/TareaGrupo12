@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace apiwithdb.Models.dtos
+namespace TareaTecWebGrupo12.Models.dtos
 {
     public record CreateEventDto
     {

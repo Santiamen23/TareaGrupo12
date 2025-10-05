@@ -1,8 +1,8 @@
-﻿using apiwithdb.Models.dtos;
-using apiwithdb.Services;
+﻿using TareaTecWebGrupo12.Models.dtos;
+using TareaTecWebGrupo12.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace apiwithdb.Controllers
+namespace TareaTecWebGrupo12.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

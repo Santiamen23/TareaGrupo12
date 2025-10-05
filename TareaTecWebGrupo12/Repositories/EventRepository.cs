@@ -1,8 +1,8 @@
-﻿using apiwithdb.Data;
-using apiwithdb.Models;
+﻿using TareaTecWebGrupo12.Data;
+using TareaTecWebGrupo12.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace apiwithdb.Repositories
+namespace TareaTecWebGrupo12.Repositories
 {
     public class EventRepository : IEventRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace apiwithdb.Models
+﻿namespace TareaTecWebGrupo12.Models
 {
     public class Event
     {

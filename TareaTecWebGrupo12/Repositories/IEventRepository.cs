@@ -1,6 +1,6 @@
-﻿using apiwithdb.Models;
+﻿using TareaTecWebGrupo12.Models;
 
-namespace apiwithdb.Repositories
+namespace TareaTecWebGrupo12.Repositories
 {
     public interface IEventRepository
     {
