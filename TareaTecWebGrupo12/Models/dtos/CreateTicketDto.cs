@@ -1,14 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TareaTecWebGrupo12.Models
+namespace TareaTecWebGrupo12.Models.dtos
 {
-    public class Ticket
+    public record CreateTicketDto
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
-
         [Required, StringLength(200)]
         public string[] Notes { get; set; }
-        
     }
-
 }
