@@ -1,6 +1,15 @@
-﻿namespace TareaTecWebGrupo12.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace TareaTecWebGrupo12.Controllers
 {
-    public class TicketsController
+    [ApiController]
+    [Route("[controller]")]
+    public class TicketsController:ControllerBase
     {
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok();
+        }
     }
 }
