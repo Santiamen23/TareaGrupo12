@@ -1,6 +1,13 @@
-﻿namespace TareaTecWebGrupo12.Services
+﻿using apiwithdb.Models;
+using apiwithdb.Models.dtos;
+
+namespace apiwithdb.Services
 {
-    public class IEventService
+    public interface IEventService
     {
+        Task<IEnumerable<Event>> GetAll();
+        Task<Event?> GetById(Guid id);
+        Task<Event> Create(CreateEventDto dto);
+        Task<bool> Delete(Guid id);
     }
 }

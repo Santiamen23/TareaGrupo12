@@ -1,6 +1,12 @@
-﻿namespace TareaTecWebGrupo12.Repositories
+﻿using apiwithdb.Models;
+
+namespace apiwithdb.Repositories
 {
-    public class IEventRepository
+    public interface IEventRepository
     {
+        Task<IEnumerable<Event>> GetAll();
+        Task<Event?> GetById(Guid id);
+        Task Add(Event anEvent);
+        Task Delete(Guid id);
     }
 }
