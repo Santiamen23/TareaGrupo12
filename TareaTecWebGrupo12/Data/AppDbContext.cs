@@ -11,6 +11,7 @@ namespace TareaTecWebGrupo12.Data
         }
         public DbSet<Event> Events => Set<Event>();
         public DbSet<Ticket> tickets => Set<Ticket>();
+        public DbSet<Guest> Guests => Set<Guest>();
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -27,6 +28,12 @@ namespace TareaTecWebGrupo12.Data
             {
                 b.HasKey(x => x.Id);
                 b.Property(x => x.Notes).IsRequired().HasMaxLength(200);
+            });
+            modelBuilder.Entity<Guest>(g =>
+            {
+                g.HasKey(x => x.Id);
+                g.Property(x => x.FullName).IsRequired().HasMaxLength(150);
+                g.Property(x => x.Confirmed).IsRequired();
             });
         }
     }
