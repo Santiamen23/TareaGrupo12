@@ -1,15 +1,18 @@
-﻿using TareaTecWebGrupo12.Models.dtos;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
+using TareaTecWebGrupo12.Models.dtos;
 using TareaTecWebGrupo12.Services;
-using Microsoft.AspNetCore.Mvc;
 
 namespace TareaTecWebGrupo12.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EventsController : ControllerBase
+    public class GuestsController : ControllerBase
     {
-        private readonly IEventService _service;
-        public EventsController(IEventService service)
+        private readonly IGuestService _service;
+
+        public GuestsController(IGuestService service)
         {
             _service = service;
         }
@@ -17,31 +20,36 @@ namespace TareaTecWebGrupo12.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var item = await _service.GetAll();
-            return Ok(item);
+            var guests = await _service.GetAll();
+            return Ok(guests);
         }
 
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetOne(Guid id)
         {
-            var anEvent = await _service.GetById(id);
-            return anEvent == null
-                ? NotFound(new { error = "Event not found", status = 404 })
-                : Ok(anEvent);
+            var guest = await _service.GetById(id);
+            return guest == null
+                ? NotFound(new { error = "Guest not found", status = 404 })
+                : Ok(guest);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateEventDto dto)
+        public async Task<IActionResult> Create([FromBody] CreateGuestDto dto)
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
+
             try
             {
-                var anEvent = await _service.Create(dto);
-                return CreatedAtAction(nameof(GetOne), new { id = anEvent.Id }, anEvent);
+                var guest = await _service.Create(dto);
+                return CreatedAtAction(nameof(GetOne), new { id = guest.Id }, guest);
             }
-            catch (InvalidOperationException ex)
+            catch (ArgumentException ex)
             {
                 return BadRequest(new { error = ex.Message, status = 400 });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message, status = 500 });
             }
         }
 
@@ -51,7 +59,7 @@ namespace TareaTecWebGrupo12.Controllers
             var success = await _service.Delete(id);
             return success
                 ? NoContent()
-                : NotFound(new { error = "Event not found", status = 404 });
+                : NotFound(new { error = "Guest not found", status = 404 });
         }
     }
 }
