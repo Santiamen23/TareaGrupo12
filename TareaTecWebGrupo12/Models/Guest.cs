@@ -1,10 +1,11 @@
-﻿namespace TareaTecWebGrupo12.Models
+﻿using System;
+
+namespace TareaTecWebGrupo12.Models
 {
-    public class Event
+    public class Guest
     {
         public Guid Id { get; set; }
-        public string Title { get; set; } = string.Empty;
-        public DateTime Date { get; set; }
-        public int Capacity { get; set; }
+        public string FullName { get; set; } = string.Empty;
+        public bool Confirmed { get; set; } = false;
     }
 }

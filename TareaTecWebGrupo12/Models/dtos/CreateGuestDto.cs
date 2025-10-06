@@ -2,15 +2,12 @@
 
 namespace TareaTecWebGrupo12.Models.dtos
 {
-    public record CreateEventDto
+    public record CreateGuestDto
     {
         [Required, StringLength(200)]
-        public string Title { get; set; } = string.Empty;
+        public string FullName { get; set; } = string.Empty;
 
         [Required]
-        public DateTime Date { get; set; }
-
-        [Range(1, int.MaxValue)]
-        public int Capacity { get; set; }
+        public bool Confirmed { get; set; }
     }
 }
