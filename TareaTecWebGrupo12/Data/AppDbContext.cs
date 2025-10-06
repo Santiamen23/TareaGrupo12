@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using TareaTecWebGrupo12.Models;
 
-namespace TareaTecWebGrupo12.Data
+namespace TareaTecWebGrupo12.Data;
 
 public class AppDbContext : DbContext
 {
@@ -36,6 +36,4 @@ public class AppDbContext : DbContext
             g.HasKey(x => x.Confirmed);
         });
     }
-
-    } 
 }
