@@ -12,7 +12,7 @@ public class AppDbContext : DbContext
     }
     public DbSet<Event> Events => Set<Event>();
     public DbSet<Ticket> tickets => Set<Ticket>();
-    public DbSet<Guest> Guest => Set<Guest>();
+    public DbSet<Guest> Guests => Set<Guest>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
